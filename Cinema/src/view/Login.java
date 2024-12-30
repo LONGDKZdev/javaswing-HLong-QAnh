@@ -13,7 +13,7 @@ public class Login extends JFrame {
     public Login() {
         // Set JFrame properties
         setTitle("Cinema Login");
-        setSize(1200, 500);
+        setSize(1600, 901);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);
@@ -22,28 +22,28 @@ public class Login extends JFrame {
         JLabel lblUsername = new JLabel("Login Name:");
         lblUsername.setForeground(new Color(255, 255, 255));
         lblUsername.setFont(new Font("Tahoma", Font.BOLD, 20));
-        lblUsername.setBounds(247, 217, 133, 35);
+        lblUsername.setBounds(633, 417, 133, 35);
         getContentPane().add(lblUsername);
 
         txtUsername = new JTextField();
-        txtUsername.setBounds(390, 212, 150, 35);
+        txtUsername.setBounds(827, 421, 150, 35);
         getContentPane().add(txtUsername);
 
         // Password
         JLabel lblPassword = new JLabel("Password:");
         lblPassword.setForeground(new Color(255, 255, 255));
         lblPassword.setFont(new Font("Tahoma", Font.BOLD, 20));
-        lblPassword.setBounds(247, 248, 126, 32);
+        lblPassword.setBounds(653, 462, 126, 32);
         getContentPane().add(lblPassword);
 
         txtPassword = new JPasswordField();
-        txtPassword.setBounds(390, 257, 150, 30);
+        txtPassword.setBounds(827, 465, 150, 35);
         getContentPane().add(txtPassword);
 
         
         btnLogin = new JButton("Login");
         btnLogin.setFont(new Font("Tahoma", Font.BOLD, 20));
-        btnLogin.setBounds(420, 297, 120, 30);
+        btnLogin.setBounds(837, 515, 120, 30);
         btnLogin.setBackground(new Color(59, 89, 152));
         btnLogin.setForeground(Color.BLACK);
         getContentPane().add(btnLogin);
@@ -51,7 +51,7 @@ public class Login extends JFrame {
         
         btnCreateAccount = new JButton("Canel");
         btnCreateAccount.setFont(new Font("Tahoma", Font.BOLD, 20));
-        btnCreateAccount.setBounds(253, 297, 120, 30);
+        btnCreateAccount.setBounds(633, 515, 120, 30);
         btnCreateAccount.setBackground(Color.GREEN);
         btnCreateAccount.setForeground(Color.BLACK);
         getContentPane().add(btnCreateAccount);
@@ -59,13 +59,13 @@ public class Login extends JFrame {
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/view/admin.jpg")));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel.setBounds(0, 0, 797, 473);
+        lblNewLabel.setBounds(0, 0, 1600, 901);
         getContentPane().add(lblNewLabel);
 
        
         btnLogin.addActionListener(new ActionListener() {
             @Override
-public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 String username = txtUsername.getText();
                 String password = String.valueOf(txtPassword.getPassword());
 
