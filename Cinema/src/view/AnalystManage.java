@@ -9,7 +9,8 @@ import model.Bill;
 
 
 public class AnalystManage extends javax.swing.JFrame {
-   private List<Bill> bills;
+   private static final long serialVersionUID = 1L;
+private List<Bill> bills;
    private DefaultTableModel Model ; 
    
     public AnalystManage() {
@@ -20,7 +21,6 @@ public class AnalystManage extends javax.swing.JFrame {
         Total();
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

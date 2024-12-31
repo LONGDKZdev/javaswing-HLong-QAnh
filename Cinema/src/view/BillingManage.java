@@ -11,7 +11,8 @@ import model.Product;
 import model.DetailProduct;
 
 public class BillingManage extends javax.swing.JFrame {
-    private List<Bill> bills ;
+    private static final long serialVersionUID = 1L;
+	private List<Bill> bills ;
     private List<Product> products; 
     private List<DetailProduct> detailProducts; 
     private DefaultTableModel ModelBill;
@@ -32,7 +33,7 @@ public class BillingManage extends javax.swing.JFrame {
     }
 
  
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -407,7 +408,7 @@ public class BillingManage extends javax.swing.JFrame {
          selectedIndex = ProductTable.getSelectedRow(); //day la lenh mouseClicked
         Product product = products.get(selectedIndex);
         txtProductID.setText(product.getProductID());
-        txtProductName.setText(product.getName());
+        txtProductName.setText(product.getNameProduct());
         comboProductType.setSelectedItem(product.getType());
         txtProductPrice.setText(product.getPrice()+"");
     }//GEN-LAST:event_ProductTableMouseClicked
@@ -514,7 +515,7 @@ public class BillingManage extends javax.swing.JFrame {
       for (Product p : products) {
           ModelProduct.addRow(new Object[]{
           p.getProductID(),
-            p.getName(),
+            p.getNameProduct(),
             p.getType(),
             p.getQuantity(),
             p.getPrice()

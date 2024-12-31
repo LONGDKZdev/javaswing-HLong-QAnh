@@ -10,13 +10,14 @@ package view;
  */
 public class Home extends javax.swing.JFrame {
 
-    public Home() {
+    private static final long serialVersionUID = 1L;
+	public Home() {
         this.setLocation(230,100);
         initComponents();
     }
 
 
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

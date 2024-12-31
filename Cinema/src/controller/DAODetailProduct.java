@@ -3,30 +3,21 @@ package controller;
 
 import model.DetailProduct;
 import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+import ConnectSQL_Server.SQLServerConnection;
+
 public class DAODetailProduct {
     
     private Connection conn ;
     
     public DAODetailProduct() {
-     try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/detailbill";
-            String user = "root" ;
-            String password = "" ;
-            conn = DriverManager.getConnection(url, user, password);
-           
-        }
-        catch (Exception e){
-            e.printStackTrace();
-             JOptionPane.showMessageDialog(null, "Failed to connect to database: " + e.getMessage());
-        }
+    	conn = SQLServerConnection.getConnection();
     
     }
     
@@ -59,8 +50,7 @@ public class DAODetailProduct {
     
     
     public void AddDetailProduct(DetailProduct detail) {
-    String sql = "INSERT INTO `tbldetailbill`(`productID`, `quantity`, `price`) VALUES" + 
-            "(?,?,?)";
+    String sql = "INSERT INTO tbldetailbill(productID, quantity, price) VALUES (?,?,?)";
     try {
         if (conn == null) {
                 System.out.println("Database connection failed!");

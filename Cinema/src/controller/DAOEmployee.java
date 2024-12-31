@@ -3,7 +3,6 @@ package controller;
 
 import model.Employee;
 
-import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,23 +12,13 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import ConnectSQL_Server.SQLServerConnection;
+
 public class DAOEmployee {
     private Connection conn ;
     
     public DAOEmployee() {
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/employee";
-            String user = "root" ;
-            String password = "" ;
-            conn = DriverManager.getConnection(url, user, password);
-           
-        }
-        catch (Exception e){
-            e.printStackTrace();
-             JOptionPane.showMessageDialog(null, "Failed to connect to database: " + e.getMessage());
-        }
+    	conn = SQLServerConnection.getConnection();
     }
 
     public ArrayList<Employee> getListEmployee() {
@@ -47,7 +36,7 @@ public class DAOEmployee {
                Employee employee = new Employee();
                
                employee.setEmployeeID(rs.getString("employeeID"));
-               employee.setName(rs.getString("name"));
+               employee.setName(rs.getString("nameEmployee"));
                employee.setPosition(rs.getString("position"));
                employee.setDate(rs.getString("date"));
                employee.setGender(rs.getString("gender"));
@@ -64,18 +53,19 @@ public class DAOEmployee {
         }
         return list;
     }
-    public void AddEmployee(Employee employee) {
-    String sql = "INSERT INTO `tblemployee`(`employeeID`, `name`, `position`, `date`, `gender`, `address`, `phoneNumber`, `email`, `salary`) VALUES " 
-       + "(?,?,?,?,?,?,?,?,?)";
+    public boolean AddEmployee(Employee employee) {
+    	
+    String sql = "INSERT INTO tblemployee (employeeID, nameEmployee, position, date, gender, address, phoneNumber, email, salary)" 
+    +" VALUES (?,?,?,?,?,?,?,?,?)";
     try {
         if (conn == null) {
                 System.out.println("Database connection failed!");
-                return;
+                return false;
         }
         
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,employee.getEmployeeID());
-        ps.setString(2,employee.getName());
+        ps.setString(2,employee.getNameEmployee());
         ps.setString(3,employee.getPosition());
         ps.setString(4,employee.getDate());
         ps.setString(5,employee.getGender());
@@ -89,10 +79,11 @@ public class DAOEmployee {
    e.printStackTrace();
     JOptionPane.showMessageDialog(null, "Error adding employee: " + e.getMessage());
     }
+	return false;
     }
     
     public boolean updateEmployee(Employee employee) {
-        String sql = "UPDATE tblemployee SET name=?, position=?, date=?, gender=?, address=?, phoneNumber=?, email=?, salary=? WHERE employeeID=?";
+        String sql = "UPDATE tblemployee SET nameEmployee=?, position=?, date=?, gender=?, address=?, phoneNumber=?, email=?, salary=? WHERE employeeID=?";
         try {
             if (conn == null) {
                 System.out.println("Database connection failed!");
@@ -100,7 +91,7 @@ public class DAOEmployee {
             }
 
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, employee.getName());
+            ps.setString(1, employee.getNameEmployee());
             ps.setString(2, employee.getPosition());
             ps.setString(3, employee.getDate());
             ps.setString(4, employee.getGender());
@@ -143,7 +134,7 @@ public class DAOEmployee {
     
     public ArrayList<Employee> searchEmployee(String keyword) {
         ArrayList<Employee> list = new ArrayList<>();
-        String sql = "SELECT * FROM tblemployee WHERE employeeID LIKE ? OR name LIKE ?";
+        String sql = "SELECT * FROM tblemployee WHERE employeeID LIKE ? OR nameEmployee LIKE ?";
         try {
             if (conn == null) {
                 System.out.println("Database connection failed!");
@@ -159,7 +150,7 @@ public class DAOEmployee {
                 Employee employee = new Employee();
 
                 employee.setEmployeeID(rs.getString("employeeID"));
-                employee.setName(rs.getString("name"));
+                employee.setName(rs.getString("nameEmployee"));
                 employee.setPosition(rs.getString("position"));
                 employee.setDate(rs.getString("date"));
                 employee.setGender(rs.getString("gender"));

@@ -6,11 +6,15 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Employee;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Font;
 
 
 public class EmployeeManage extends javax.swing.JFrame {
-
-   private List<Employee> employee ;
+   private static final long serialVersionUID = 1L;
+private List<Employee> employee ;
    private DefaultTableModel Model ;
    
     public EmployeeManage() {
@@ -19,14 +23,52 @@ public class EmployeeManage extends javax.swing.JFrame {
         Model = (DefaultTableModel)TableResult.getModel();
         showTable();
     }
-    @SuppressWarnings("unchecked")
+    
+    
+ // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboxCV;
+    private javax.swing.JRadioButton RdNam;
+    private javax.swing.JRadioButton RdNu;
+    private javax.swing.JTable TableResult;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnFind;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnReplace;
+//    private javax.swing.ButtonGroup buttonGroup1;
+//    private javax.swing.ButtonGroup buttonGroup2;
+//    private javax.swing.ButtonGroup buttonGroup3;
+//    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtLuong;
+    private javax.swing.JTextField txtManv;
+    private javax.swing.JTextField txtSDT;
+    private javax.swing.JTextField txtTennv;
+    private javax.swing.JTextField txtdate;
+    // End of variables declaration//GEN-END:variables
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        buttonGroup4 = new javax.swing.ButtonGroup();
+//        buttonGroup1 = new javax.swing.ButtonGroup();
+//        buttonGroup2 = new javax.swing.ButtonGroup();
+//        buttonGroup3 = new javax.swing.ButtonGroup();
+//        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -298,14 +340,13 @@ public class EmployeeManage extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        TableResult.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        TableResult.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Number", "Emp ID", "Full Name", "Position", "Birth Date", "Gender", "Address", "Phone Number", "Email ", "Salary"
-            }
+        TableResult.setFont(new Font("Tahoma", Font.PLAIN, 12)); // NOI18N
+        TableResult.setModel(new DefaultTableModel(
+        	new Object[][] {
+        	},
+        	new String[] {
+        		"Number", "Emp ID", "Full Name", "Position", "Birth Date", "Gender", "Address", "Phone Number", "Email ", "Salary"
+        	}
         ));
         jScrollPane1.setViewportView(TableResult);
 
@@ -318,40 +359,40 @@ public class EmployeeManage extends javax.swing.JFrame {
         });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156)
-                .addComponent(btnExit)
-                .addGap(14, 14, 14))
+        	jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 676, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap())
+        		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addContainerGap(241, Short.MAX_VALUE)
+        			.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+        			.addGap(156)
+        			.addComponent(btnExit)
+        			.addGap(14))
         );
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnExit)
-                        .addGap(53, 53, 53))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        	jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(jPanel2Layout.createSequentialGroup()
+        					.addComponent(btnExit)
+        					.addGap(53))
+        				.addGroup(jPanel2Layout.createSequentialGroup()
+        					.addComponent(jLabel1)
+        					.addGap(18)))
+        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+        				.addGroup(Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 540, GroupLayout.PREFERRED_SIZE))))
         );
+        jPanel2.setLayout(jPanel2Layout);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 620));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -385,62 +426,68 @@ public class EmployeeManage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReplaceActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-           DAOEmployee dao = new DAOEmployee();
-   String employeeID = JOptionPane.showInputDialog(this, "Enter Employee ID to delete:");
-
-   if (employeeID != null && !employeeID.trim().isEmpty()) {
-    int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this employee?");
-    if (confirm == JOptionPane.YES_OPTION) {
-        boolean success = dao.deleteEmployee(employeeID);
-        
-        if (success) {
-            JOptionPane.showMessageDialog(this, "Employee deleted successfully!");
-        } else {
-            JOptionPane.showMessageDialog(this, "Delete failed!");
+    	try {// đã thêm try catch để không bị dừng chương trình (btnRemove)
+            DAOEmployee dao = new DAOEmployee();
+            String employeeID = JOptionPane.showInputDialog(this, "Enter Employee ID to delete:");
+            if (employeeID != null && !employeeID.trim().isEmpty()) {
+                int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this employee?");
+                if (confirm == JOptionPane.YES_OPTION) {
+                    boolean success = dao.deleteEmployee(employeeID);       
+                    if (success) {
+                        JOptionPane.showMessageDialog(this, "Employee deleted successfully!");
+                        showTable();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Delete failed! Employee ID not found.");
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Employee ID is required to delete!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "An error occurred while deleting: " + e.getMessage());
         }
-        showTable();
     }
-   }
-    }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void RdNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdNamActionPerformed
-      
-    }//GEN-LAST:event_RdNamActionPerformed
-
-    private void ComboxCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboxCVActionPerformed
-      
-    }//GEN-LAST:event_ComboxCVActionPerformed
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        DAOEmployee dao = new DAOEmployee();
-        Employee employee = new Employee();
-        employee.setEmployeeID(txtManv.getText());
-        employee.setName(txtTennv.getText());
-        employee.setPosition(ComboxCV.getSelectedItem().toString());
-        employee.setDate(txtdate.getText());
-        employee.setAddress(txtAddress.getText());
-        employee.setPhoneNumber(txtSDT.getText());
-        employee.setEmail(txtEmail.getText());
-      
-        String gender = "";
-    if (RdNam.isSelected()) {
-     gender = "Man";
-    } else if (RdNu.isSelected()) {
-    gender = "Female";
     }
-    employee.setGender(gender);
+    private void ComboxCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboxCVActionPerformed 
+    }
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    	try {
+            DAOEmployee dao = new DAOEmployee();
+            Employee employee = new Employee();
 
-        boolean isOK = true ; 
-        try {
-        employee.setSalary(Integer.parseInt(txtLuong.getText()));
-        
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Number, not is String");
-        } 
-        if(isOK) {
-        dao.AddEmployee(employee);
-        showTable();
-        JOptionPane.showMessageDialog(this, "Susscessful Added");
+            if (txtManv.getText().trim().isEmpty() || txtTennv.getText().trim().isEmpty() ||
+                txtdate.getText().trim().isEmpty() || txtAddress.getText().trim().isEmpty() ||
+                txtEmail.getText().trim().isEmpty() || txtSDT.getText().trim().isEmpty() ||
+                txtLuong.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields are required!");
+                return;
+            }
+
+            employee.setEmployeeID(txtManv.getText());
+            employee.setName(txtTennv.getText());
+            employee.setPosition(ComboxCV.getSelectedItem().toString());
+            employee.setDate(txtdate.getText());
+            employee.setAddress(txtAddress.getText());
+            employee.setPhoneNumber(txtSDT.getText());
+            employee.setEmail(txtEmail.getText());
+            employee.setSalary(Integer.parseInt(txtLuong.getText()));
+
+            String gender = RdNam.isSelected() ? "Man" : "Female";
+            employee.setGender(gender);
+
+            boolean success = dao.AddEmployee(employee);
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Employee added successfully!");
+                showTable();
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to add employee.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid salary input. Please enter a number.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "An error occurred: " + e.getMessage());
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -449,32 +496,38 @@ public class EmployeeManage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-        DAOEmployee dao = new DAOEmployee();
-    String keyword = JOptionPane.showInputDialog(this, "Enter Employee ID to find:");
-    if (keyword != null && !keyword.trim().isEmpty()) {
-     employee = dao.searchEmployee(keyword);
-
-    Model.setRowCount(0); 
-    int count = 1;
-    for (Employee e : employee) {
-        Model.addRow(new Object[]{
-            count++,
-            e.getEmployeeID(),
-            e.getName(),
-            e.getPosition(),
-            e.getDate(),
-            e.getGender(),
-            e.getAddress(),
-            e.getPhoneNumber(),
-            e.getEmail(),
-            e.getSalary()
-        });
+    	try {// đã thêm try catch để không bị dừng chương trình(btnFind)
+            DAOEmployee dao = new DAOEmployee();
+            String keyword = JOptionPane.showInputDialog(this, "Enter Employee ID to find:");
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                employee = dao.searchEmployee(keyword);
+                if (employee.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "No employee found with the given ID.");
+                } else {
+                    Model.setRowCount(0); 
+                    int count = 1;
+                    for (Employee e : employee) {
+                        Model.addRow(new Object[]{
+                            count++,
+                            e.getEmployeeID(),
+                            e.getNameEmployee(),
+                            e.getPosition(),
+                            e.getDate(),
+                            e.getGender(),
+                            e.getAddress(),
+                            e.getPhoneNumber(),
+                            e.getEmail(),
+                            e.getSalary()
+                        });
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Keyword ID is required!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "An error occurred while searching: " + e.getMessage());
+        }
     }
-    } else {
-    JOptionPane.showMessageDialog(this, "Keyword ID is required!");
-}
-    }//GEN-LAST:event_btnFindActionPerformed
-
     private void RdNuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdNuActionPerformed
        
     }//GEN-LAST:event_RdNuActionPerformed
@@ -486,43 +539,7 @@ public class EmployeeManage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboxCV;
-    private javax.swing.JRadioButton RdNam;
-    private javax.swing.JRadioButton RdNu;
-    private javax.swing.JTable TableResult;
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnFind;
-    private javax.swing.JButton btnRefresh;
-    private javax.swing.JButton btnRemove;
-    private javax.swing.JButton btnReplace;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtLuong;
-    private javax.swing.JTextField txtManv;
-    private javax.swing.JTextField txtSDT;
-    private javax.swing.JTextField txtTennv;
-    private javax.swing.JTextField txtdate;
-    // End of variables declaration//GEN-END:variables
+    
 
     private void showTable() {
        employee = new DAOEmployee().getListEmployee();
@@ -532,7 +549,7 @@ public class EmployeeManage extends javax.swing.JFrame {
         Model.addRow(new Object[]{
             count++, // Số thứ tự
             e.getEmployeeID(),
-            e.getName(),
+            e.getNameEmployee(),
             e.getPosition(),
             e.getDate(),
             e.getGender(),

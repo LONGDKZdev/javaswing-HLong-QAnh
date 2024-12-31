@@ -6,7 +6,8 @@ import javax.swing.JOptionPane;
 import model.Product;
 
 public class ProductManage extends javax.swing.JFrame {
- private List<Product> product ;
+ private static final long serialVersionUID = 1L;
+private List<Product> product ;
    private DefaultTableModel Model ;
   
     public ProductManage() {
@@ -17,7 +18,7 @@ public class ProductManage extends javax.swing.JFrame {
     }
 
    
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -230,7 +231,7 @@ public class ProductManage extends javax.swing.JFrame {
         Model.addRow(new Object[]{
             count++,
             p.getProductID(),
-            p.getName(),
+            p.getNameProduct(),
             p.getType(),
             p.getQuantity(),
             p.getPrice()
@@ -246,7 +247,7 @@ public class ProductManage extends javax.swing.JFrame {
    DAOProduct dao = new DAOProduct();
         Product product = new Product();
         product.setProductID(txtProductID.getText());
-        product.setName(txtName.getText());
+        product.setNameProduct(txtName.getText());
         product.setType(comboBoxType.getSelectedItem().toString());
         product.setQuantity(Integer.parseInt(txtQuantity.getText()));
         product.setPrice(Integer.parseInt(txtPrice.getText()));
@@ -262,7 +263,7 @@ public class ProductManage extends javax.swing.JFrame {
         DAOProduct dao = new DAOProduct();
         Product product = new Product();
     product.setProductID(txtProductID.getText());
-    product.setName(txtName.getText());
+    product.setNameProduct(txtName.getText());
     product.setType(comboBoxType.getSelectedItem().toString());
     product.setQuantity(Integer.parseInt(txtQuantity.getText()));
     product.setPrice(Integer.parseInt(txtPrice.getText()));
@@ -299,23 +300,23 @@ public class ProductManage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtPriceActionPerformed
 
     private void txtProductIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductIDActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtProductIDActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtQuantityActionPerformed
 
     private void comboBoxTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxTypeActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_comboBoxTypeActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -358,7 +359,7 @@ public class ProductManage extends javax.swing.JFrame {
         Model.addRow(new Object[]{
             count++, // Số thứ tự
             p.getProductID(),
-            p.getName(),
+            p.getNameProduct(),
             p.getType(),
             p.getQuantity(),
             p.getPrice()

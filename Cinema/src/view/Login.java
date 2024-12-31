@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Login extends JFrame {
-    private JTextField txtUsername;
+    private static final long serialVersionUID = 1L;
+	private JTextField txtUsername;
     private JPasswordField txtPassword;
     private JButton btnLogin, btnCreateAccount;
 

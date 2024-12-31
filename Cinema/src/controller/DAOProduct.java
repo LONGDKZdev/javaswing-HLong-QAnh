@@ -6,7 +6,6 @@ package controller;
 
 import model.Product;
 
-import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,23 +15,13 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import ConnectSQL_Server.SQLServerConnection;
+
 public class DAOProduct {
     private Connection conn ;
     
     public DAOProduct() {
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/product";
-            String user = "root" ;
-            String password = "" ;
-            conn = DriverManager.getConnection(url, user, password);
-            
-        }
-        catch (Exception e){
-            e.printStackTrace();
-             JOptionPane.showMessageDialog(null, "Failed to connect to database: " + e.getMessage());
-        }
+    	conn = SQLServerConnection.getConnection();
     }
    
      public ArrayList<Product> getListProduct() {
@@ -50,7 +39,7 @@ public class DAOProduct {
                Product product = new Product();
                
                product.setProductID(rs.getString("productID"));
-               product.setName(rs.getString("name"));
+               product.setNameProduct(rs.getString("nameProduct"));
                product.setType(rs.getString("type"));
                product.setQuantity(rs.getInt("quantity"));
                product.setPrice(rs.getInt("price"));
@@ -66,8 +55,7 @@ public class DAOProduct {
     }
     
     public void AddProduct(Product product) { 
-    String sql = "INSERT INTO `tblproduct`(`productID`, `name`, `type`, `quantity`, `price`) VALUES" 
-    + "(?,?,?,?,?)";
+    String sql = "INSERT INTO tblproduct (productID, nameProduct, type, quantity, price) VALUES (?,?,?,?,?)"; 
     try {
         if (conn == null) {
                 System.out.println("Database connection failed!");
@@ -75,7 +63,7 @@ public class DAOProduct {
         }
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,product.getProductID());
-        ps.setString(2,product.getName());
+        ps.setString(2,product.getNameProduct());
         ps.setString(3,product.getType());
         ps.setInt(4,product.getQuantity());
         ps.setInt(5,product.getPrice());
@@ -88,14 +76,14 @@ public class DAOProduct {
     }
      
      public boolean updateProduct(Product product) { 
-     String sql = "UPDATE `tblproduct` SET `name`=?,`type`=?,`quantity`=?,`price`=? WHERE `productID`=?";
+     String sql = "UPDATE tblproduct SET nameProduct=?, type=?, quantity=?, price=? WHERE productID=?";
       try {
             if (conn == null) {
                 System.out.println("Database connection failed!");
                 return false;
             }
               PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, product.getName());
+            ps.setString(1, product.getNameProduct());
             ps.setString(2, product.getType());
             ps.setInt(3, product.getQuantity());
             ps.setInt(4, product.getPrice());
@@ -149,7 +137,7 @@ public class DAOProduct {
                 Product product = new Product();
 
                 product.setProductID(rs.getString("productID"));
-                product.setName(rs.getString("name"));
+                product.setNameProduct(rs.getString("nameProduct"));
                 product.setType(rs.getString("type"));
                 product.setQuantity(rs.getInt("quantity"));
                 product.setPrice(rs.getInt("price"));

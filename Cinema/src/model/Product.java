@@ -2,15 +2,15 @@
 package model;
 
 public class Product {
-    private String productID, name, type ;
+    private String productID, nameProduct, type ;
     private int quantity, price ;
 
     public Product() {
     }
 
-    public Product(String productID, String name, String type, int quantity, int price) {
+    public Product(String productID, String nameProduct, String type, int quantity, int price) {
         this.productID = productID;
-        this.name = name;
+        this.nameProduct = nameProduct;
         this.type = type;
         this.quantity = quantity;
         this.price = price;
@@ -24,12 +24,12 @@ public class Product {
         this.productID = productID;
     }
 
-    public String getName() {
-        return name;
+    public String getNameProduct() {
+        return nameProduct;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
     }
 
     public String getType() {

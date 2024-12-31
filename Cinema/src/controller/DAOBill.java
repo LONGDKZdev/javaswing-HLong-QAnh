@@ -2,33 +2,22 @@
 package controller;
 
 import model.Bill;
-
-import java.sql.DriverManager;
+// bỏ cái này
+//import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+// đưa lớp SQLServerConnection từ gói ConnectSQL_Sever vào
+import ConnectSQL_Server.SQLServerConnection; 
 public class DAOBill {
       private Connection conn ;
       
       public DAOBill() {
-      try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/bill";
-            String user = "root" ;
-            String password = "" ;
-            conn = DriverManager.getConnection(url, user, password);
-            
-        }
-        catch (Exception e){
-            e.printStackTrace();
-             JOptionPane.showMessageDialog(null, "Failed to connect to database: " + e.getMessage());
-        }
+          conn = SQLServerConnection.getConnection();
       }
-      
       public ArrayList<Bill> getListBill() {
         ArrayList<Bill> list = new ArrayList<>() ;
         String sql = "SELECT * FROM tblbill";
@@ -43,7 +32,7 @@ public class DAOBill {
            while (rs.next()) {
                Bill bill = new Bill();
                
-               bill.setBillID(rs.getInt("id"));
+               bill.setBillID(rs.getInt("billID"));
                bill.setDateOrder(rs.getString("dateOrder"));
                bill.setPrice(rs.getInt("price"));
                list.add(bill);
@@ -73,7 +62,7 @@ public class DAOBill {
             while (rs.next()) /*chứa những dữ liệu có điểm chung với keyword*/  {
                 Bill bill = new Bill();
 
-                bill.setBillID(rs.getInt("id"));
+                bill.setBillID(rs.getInt("billID"));
                 bill.setDateOrder(rs.getString("dateOrder"));
                 bill.setPrice(rs.getInt("price"));
                
@@ -91,8 +80,7 @@ public class DAOBill {
       
       
       public void AddBill(Bill bill) { 
-    String sql = "INSERT INTO tblbill(id, dateOrder, price) VALUES"
-            + "(?,?,?)";
+    String sql = "INSERT INTO tblbill(billID, dateOrder, price) VALUES (?,?,?)";
     try {
         if (conn == null) {
                 System.out.println("Database connection failed!");
@@ -120,7 +108,6 @@ public class DAOBill {
    e.printStackTrace();
   }
    } 
-      
       
       
       

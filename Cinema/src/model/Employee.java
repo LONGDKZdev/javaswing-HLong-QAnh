@@ -3,14 +3,14 @@ package model;
 
 public class Employee {
   
-    private String EmployeeID, name , position, date,address,phoneNumber,email, gender;
+    private String EmployeeID, nameEmployee , position, date,address,phoneNumber,email, gender;
     private int salary; 
     public Employee() {
     }
 
-    public Employee(String EmployeeID, String name, String position, String date, String address, String phoneNumber, String email, String gender, int salary) {
+    public Employee(String EmployeeID, String nameEmployee, String position, String date, String address, String phoneNumber, String email, String gender, int salary) {
         this.EmployeeID = EmployeeID;
-        this.name = name;
+        this.nameEmployee = nameEmployee;
         this.position = position;
         this.date = date;
         this.address = address;
@@ -28,12 +28,12 @@ public class Employee {
         this.EmployeeID = EmployeeID;
     }
 
-    public String getName() {
-        return name;
+    public String getNameEmployee() {
+        return nameEmployee;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String nameEmployee) {
+        this.nameEmployee = nameEmployee;
     }
 
     public String getPosition() {
